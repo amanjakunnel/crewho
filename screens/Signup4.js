@@ -16,7 +16,7 @@ const reviewSchema = yup.object({
 	locality: yup.string().required(),
 	city: yup.string().required(),
 	state: yup.string().required(),
-	Country: yup.string().required(),
+	country: yup.string().required(),
 });
 
 export default function Signup_4({ navigation }) {
@@ -47,17 +47,24 @@ export default function Signup_4({ navigation }) {
 								gender,
 							})
 							.then((res) => {
-								navigation.navigate('Home');
-							});
+								console.log(values);
+								console.log(res.status);
+								if (res.status == 200) {
+									navigation.navigate('Home');
+								} else {
+									console.log('something is not correct');
+								}
+							})
+							.catch((err) => console.log('error incoming' + err));
 					}}
 				>
 					{(props) => (
 						<View>
 							<TextInput
 								style={globalStyles.input}
-								placeholder='Locality'
+								placeholder='locality'
 								placeholderTextColor='white'
-								onChangeText={props.handleChange('Locality')}
+								onChangeText={props.handleChange('locality')}
 								value={props.values.locality}
 							/>
 							<Text style={globalStyles.error}>
@@ -65,33 +72,33 @@ export default function Signup_4({ navigation }) {
 							</Text>
 							<TextInput
 								style={globalStyles.input}
-								placeholder='City'
+								placeholder='city'
 								placeholderTextColor='white'
-								onChangeText={props.handleChange('City')}
-								value={props.values.City}
+								onChangeText={props.handleChange('city')}
+								value={props.values.city}
 							/>
 							<Text style={globalStyles.error}>
-								{props.touched.City && props.errors.City}
+								{props.touched.city && props.errors.city}
 							</Text>
 							<TextInput
 								style={globalStyles.input}
-								placeholder='State'
+								placeholder='state'
 								placeholderTextColor='white'
-								onChangeText={props.handleChange('State')}
-								value={props.values.State}
+								onChangeText={props.handleChange('state')}
+								value={props.values.state}
 							/>
 							<Text style={globalStyles.error}>
-								{props.touched.State && props.errors.State}
+								{props.touched.state && props.errors.state}
 							</Text>
 							<TextInput
 								style={globalStyles.input}
-								placeholder='Country'
+								placeholder='country'
 								placeholderTextColor='white'
-								onChangeText={props.handleChange('Country')}
-								value={props.values.Country}
+								onChangeText={props.handleChange('country')}
+								value={props.values.country}
 							/>
 							<Text style={globalStyles.error}>
-								{props.touched.Country && props.errors.Country}
+								{props.touched.country && props.errors.country}
 							</Text>
 							<TouchableOpacity style={globalStyles.button}>
 								<Text

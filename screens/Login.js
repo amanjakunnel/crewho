@@ -42,13 +42,15 @@ export default function Login({ navigation }) {
 								password: values.Password,
 							})
 							.then((res) => {
+								console.log(values);
+								console.log(res.status);
 								if (res.status == 200) {
 									navigation.navigate('Home');
+								} else {
+									console.log('pass or username not correct');
 								}
 							})
-							.catch((err) => {
-								console.log(err);
-							});
+							.catch((err) => console.log('error incoming' + err));
 					}}
 				>
 					{(props) => (
