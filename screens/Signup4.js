@@ -6,10 +6,10 @@ import * as yup from 'yup';
 import axios from 'axios'
 
 const reviewSchema = yup.object({
-    Locality: yup.string().required(),
-    City: yup.string().required(),
-    State: yup.string().required(),
-    Country: yup.string().required()
+    locality: yup.string().required(),
+    city: yup.string().required(),
+    state: yup.string().required(),
+    country: yup.string().required()
 })
 
 export default function Signup_4({navigation}) {
@@ -25,26 +25,33 @@ export default function Signup_4({navigation}) {
             <View style={globalStyles.app}>
                 <Text style={globalStyles.header}>Signup</Text>
                 <Formik
-                    initialValues={{ Locality: '', City: '', State: '', Country: ''}} 
+                    initialValues={{ locality: '', city: '', state: '', country: ''}} 
                     validationSchema={reviewSchema}
                     onSubmit={(values) => {
                         axios
-                                .post('127.0.0.1:5000/users/login', { ...values, email, password, username, phone_no, name, skills, gender })
+                                .post('192.168.1.122:5000/users/signup', { ...values, email, password, username, phone_no, name, skills, gender })
                                 .then(res => {
-                                        navigation.navigate('Home');
+                                        console.log(values);
+                                        console.log(res.status);
+                                        if (res.status == 200) {
+                                            navigation.navigate('Home');
+                                        } else {
+                                            console.log('something is not correct');
+                                        }
                             })
+                            .catch((err) => console.log('error incoming' + err));
                     }}
                 >
                     {(props) => (
                         <View>
-                            <TextInput style={globalStyles.input} placeholder='Locality' placeholderTextColor='white' onChangeText={props.handleChange('Locality')} value={props.values.Locality} />
-                            <Text style={globalStyles.error}>{ props.touched.Locality && props.errors.Locality }</Text>
-                            <TextInput style={globalStyles.input} placeholder='City' placeholderTextColor='white' onChangeText={props.handleChange('City')} value={props.values.City} />
-                            <Text style={globalStyles.error}>{ props.touched.City && props.errors.City }</Text>
-                            <TextInput style={globalStyles.input} placeholder='State' placeholderTextColor='white' onChangeText={props.handleChange('State')} value={props.values.State} />
-                            <Text style={globalStyles.error}>{ props.touched.State && props.errors.State }</Text>
-                            <TextInput style={globalStyles.input} placeholder='Country' placeholderTextColor='white' onChangeText={props.handleChange('Country')} value={props.values.Country} />
-                            <Text style={globalStyles.error}>{ props.touched.Country && props.errors.Country }</Text>
+                            <TextInput style={globalStyles.input} placeholder='locality' placeholderTextColor='white' onChangeText={props.handleChange('locality')} value={props.values.locality} />
+                            <Text style={globalStyles.error}>{ props.touched.locality && props.errors.locality }</Text>
+                            <TextInput style={globalStyles.input} placeholder='city' placeholderTextColor='white' onChangeText={props.handleChange('city')} value={props.values.city} />
+                            <Text style={globalStyles.error}>{ props.touched.city && props.errors.city }</Text>
+                            <TextInput style={globalStyles.input} placeholder='state' placeholderTextColor='white' onChangeText={props.handleChange('state')} value={props.values.state} />
+                            <Text style={globalStyles.error}>{ props.touched.state && props.errors.state }</Text>
+                            <TextInput style={globalStyles.input} placeholder='country' placeholderTextColor='white' onChangeText={props.handleChange('country')} value={props.values.country} />
+                            <Text style={globalStyles.error}>{ props.touched.country && props.errors.country }</Text>
                             <TouchableOpacity style={globalStyles.button}>
                                 <Text style={globalStyles.buttonText} onPress={props.handleSubmit}>Continue</Text>
                             </TouchableOpacity>

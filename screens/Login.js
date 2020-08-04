@@ -24,15 +24,20 @@ export default function Login({navigation}) {
                     //validationSchema={reviewSchema}
                     onSubmit={(values) => {
                             axios
-                                .post('127.0.0.1:5000/users/login', {
+                                .post('http://192.168.1.122:5000/users/login', {
                                     email: values.Username,
                                     password: values.Password,
                                 })
                                 .then(res => {
-                                    if(res == 1) {
+                                    console.log(values);
+                                    console.log(res.status);
+                                    if(res.status == 200) {
                                         navigation.navigate('Home');
+                                    } else {
+                                        console.log('pass or username not correct');
                                     }
                             })
+                            .catch((err) => console.log('error incoming' + err));
                     }}
                 >
                     {(props) => (
