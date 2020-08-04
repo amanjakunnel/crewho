@@ -28,9 +28,8 @@ export default function Signup_4({navigation}) {
                     initialValues={{ Locality: '', City: '', State: '', Country: ''}} 
                     validationSchema={reviewSchema}
                     onSubmit={(values) => {
-                        console.log({ ...values, Email, Password, Username, Phone, Name, Skills, Gender });
                         axios
-                                .post('127.0.0.1:5000/users/login', { ...values, Email, Password, Username, Phone, Name, Skills, Gender })
+                                .post('127.0.0.1:5000/users/login', { ...values, email, password, username, phone_no, name, skills, gender })
                                 .then(res => {
                                         navigation.navigate('Home');
                             })
