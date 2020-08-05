@@ -29,7 +29,7 @@ export default function Signup_2({navigation}) {
                         <View>
                             <TextInput style={globalStyles.input} placeholder='Username' placeholderTextColor='white' onChangeText={props.handleChange('Username')} value={props.values.Username} />
                             <Text style={globalStyles.error}>{ props.touched.Username && props.errors.Username }</Text>
-                            <TextInput style={globalStyles.input} placeholder='Phone Number' placeholderTextColor='white' onChangeText={props.handleChange('Phone')} value={props.values.Phone} />
+                            <TextInput style={globalStyles.input} placeholder='Phone Number' placeholderTextColor='white' onChangeText={props.handleChange('Phone')} value={props.values.Phone} keyboardType='phone-pad'/>
                             <Text style={globalStyles.error}>{ props.touched.Phone && props.errors.Phone }</Text>
                             <TouchableOpacity style={globalStyles.button} onPress={props.handleSubmit}>
                                 <Text style={globalStyles.buttonText}>Continue</Text>

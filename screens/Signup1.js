@@ -30,7 +30,7 @@ export default function Signup_1({navigation}) {
                 >
                     {(props) => (
                         <View>
-                            <TextInput style={globalStyles.input} placeholder='Email' placeholderTextColor='white' onChangeText={props.handleChange('Email')} value={props.values.Email} />
+                            <TextInput style={globalStyles.input} placeholder='Email' placeholderTextColor='white' onChangeText={props.handleChange('Email')} value={props.values.Email} keyboardType='email-address'/>
                             <Text style={globalStyles.error}>{ props.touched.Email && props.errors.Email }</Text>
                             <TextInput style={globalStyles.input} placeholder='Password' placeholderTextColor='white' onChangeText={props.handleChange('Password')} value={props.values.Password} />
                             <Text style={globalStyles.error}>{ props.touched.Password && props.errors.Password }</Text>
