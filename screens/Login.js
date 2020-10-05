@@ -6,23 +6,19 @@ import * as yup from 'yup';
 import axios from 'axios';
 
 const reviewSchema = yup.object({
-    Username: yup.string().required().test('is_user', 'Username is not registered', (val) => {
-        return val == 'Username';
-    }),
-    Password: yup.string().required().test('is_pass', 'Password is incorrect', (val) => {
-        return val == 'Password';
-    }),
+    Username: yup.string().required(),
+    Password: yup.string().required(),
 })
 
 export default function Login({navigation}) {
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            <ImageBackground style={globalStyles.background} source={require('../assets/gradient.gif')} blurRadius={5}>
+            <ImageBackground style={globalStyles.background} source={require('../assets/gradient.gif')}>
                 <View style={globalStyles.app}>
                     <Text style={globalStyles.header}>Login</Text>
                     <Formik 
                         initialValues={{ Username: '', Password: ''}} 
-                        //validationSchema={reviewSchema}
+                        validationSchema={reviewSchema}
                         onSubmit={(values) => {
                                 axios
                                     .post('http://192.168.1.122:5000/users/login', {

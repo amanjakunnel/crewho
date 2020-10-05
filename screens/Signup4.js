@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard, ImageBackground } from 'react-native';
 import globalStyles from '../shared/Global';
 import { Formik } from 'formik';
 import * as yup from 'yup';
@@ -30,7 +30,7 @@ export default function Signup_4({navigation}) {
                         validationSchema={reviewSchema}
                         onSubmit={(values) => {
                             axios
-                                    .post('192.168.1.122:5000/users/signup', { ...values, email, password, username, phone_no, name, skills, gender })
+                                    .post('192.168.1.122:5000/users/signup', { ...values, Email, Password, Username, Phone, Name, Skills, Gender })
                                     .then(res => {
                                             console.log(values);
                                             console.log(res.status);
