@@ -2,12 +2,13 @@
 import React, { useState } from 'react';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
-import SignNav from './routes/SignNav'
+import Nav from './routes/Nav';
 //import Login from './Screens/login';
-//import Signup_1 from './Screens/signup1';
-//import Signup_2 from './Screens/signup2';
-//import Signup_3 from './Screens/signup3';
-//import Signup_4 from './Screens/signup4';
+//import Signup_1 from './screens/Signup1';
+//import Signup_2 from './screens/Signup2';
+//import Signup_3 from './screens/Signup3';
+//import Signup_4 from './screens/Signup4';
+//import Home from './screens/Home';
 
 const getFonts = () =>  Font.loadAsync({
   'nexa-light': require('./assets/fonts/Nexa-Light.otf'),
@@ -19,7 +20,7 @@ export default function App() {
 
   if(fontsLoaded) {
     return (
-      <SignNav />
+      <Nav />
     );
   } else {
     return (
