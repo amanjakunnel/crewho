@@ -2,20 +2,6 @@
 
 **Crewho** is a fullstack networking app connecting amateur creators (musicians, writers, artists) for collaboration, feedback, and project sharing. Built with modern React frontend and Node/Express backend. Collaborative project: frontend screens (routes/screens), backend models/API, monorepo merge.
 
-## 🏗️ Architecture
-crewho/
-├── frontend/          # React/Next.js + Expo? (mobile-ready)
-│   ├── app/          # App Router (Next.js 13+)
-│   ├── routes/       # Page routes  
-│   ├── screens/      # UI components
-│   ├── shared/       # Shared utils/hooks
-│   └── assets/       # Images/icons
-└── backend/           # Node/Express REST API
-    ├── api/          # Route handlers
-    ├── config/       # DB, env config
-    ├── models/       # Mongoose/SQL schemas
-    └── server.js     # Express server
-
 ## ✨ Features
 - Creator Profiles - Showcase portfolios, skills, availability
 - Project Collaboration - Matchmaking, real-time chat, file sharing
