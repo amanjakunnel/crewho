@@ -1,0 +1,22 @@
+Base URL: http://localhost:3001/api
+
+Auth
+POST /auth/register - Create user {email, password, skills[]}
+POST /auth/login - {email, password} → JWT token
+GET /auth/profile - Get user profile (JWT req'd)
+
+Creators
+GET /creators - List creators, filter by skills
+GET /creators/:id - Creator details/portfolio
+PUT /creators/:id - Update profile
+
+Projects
+POST /projects - Create collab project {title, description, skillsNeeded[]}
+GET /projects - Browse open projects
+POST /projects/:id/apply - Apply to project (JWT)
+GET /projects/:id/collaborators - Team members
+
+Feedback
+POST /feedback/:projectId - Submit review {rating, comment}
+
+Headers: Authorization: Bearer <token>
