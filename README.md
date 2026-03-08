@@ -1,6 +1,6 @@
 # Crewho - Collaborative Platform for Amateur Creators
 
-**Crewho** is a fullstack networking app connecting amateur creators (musicians, writers, artists) for collaboration, feedback, and project sharing. Built with modern React frontend and Node/Express backend. Collaborative project—**my contributions**: frontend screens (routes/screens), backend models/API, monorepo merge. **Credits**: Team agreement [add names/usernames/emails].
+**Crewho** is a fullstack networking app connecting amateur creators (musicians, writers, artists) for collaboration, feedback, and project sharing. Built with modern React frontend and Node/Express backend. Collaborative project: frontend screens (routes/screens), backend models/API, monorepo merge. **Credits**
 
 ## 🏗️ Architecture
 crewho/
